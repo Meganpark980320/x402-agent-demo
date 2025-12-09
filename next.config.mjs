@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* 👇 해커톤 필살기: 빌드할 때 에러 검사 무시하기 */
+  /* 👇 1. 빌드 에러 무시 (기존 유지) */
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -8,7 +8,10 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
-  /* 👇 아까 넣은 Web3 라이브러리 호환성 설정 */
+  /* 👇 2. [추가됨] 메모리 절약을 위해 소스맵 끄기 */
+  productionBrowserSourceMaps: false,
+
+  /* 👇 3. Web3 호환성 설정 (기존 유지) */
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
