@@ -1,7 +1,8 @@
-// postcss.config.cjs (가장 안정적인 Next.js 14 호환 설정)
+// postcss.config.cjs (Tailwind 플러그인 항목을 제거합니다!)
 module.exports = {
   plugins: {
-    tailwindcss: {},
+    // Tailwind는 Next.js가 자동으로 로드하도록 맡깁니다.
+    // autoprefixer만 수동으로 로드합니다.
     autoprefixer: {},
   },
 };
