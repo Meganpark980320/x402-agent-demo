@@ -1,42 +1,38 @@
 {
-  "name": "my-x402-agent",
-  "version": "0.1.1",
+  "name": "x402-agent-demo",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-"build": "next build",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@base-org/account": "^2.5.0",
+    "@google/generative-ai": "^0.1.1",
     "@iqai/adk": "file:./lib/iqai-adk-0.5.7.tgz",
-    "@metamask/sdk": "^0.34.0",
-    "@rainbow-me/rainbowkit": "^2.2.10",
-    "@safe-global/safe-apps-provider": "^0.18.6",
-    "@safe-global/safe-apps-sdk": "^9.1.0",
-    "@tanstack/react-query": "^5.90.12",
-    "@walletconnect/ethereum-provider": "^2.23.0",
-    "ai": "^5.0.108",
-    "dedent": "^1.7.0",
-    "ethers": "^6.16.0",
-    "lucide-react": "^0.556.0",
-    "next": "16.0.8",
-    "react": "19.2.1",
-    "react-dom": "19.2.1",
-    "react-markdown": "^10.1.0",
-    "viem": "^2.41.2",
-    "wagmi": "^2.19.5",
-    "zod": "^4.1.13"
+    "@rainbow-me/rainbowkit": "^2.0.0",
+    "@tanstack/react-query": "^5.0.0",
+    "dedent": "^1.5.3",
+    "ethers": "^6.13.0",
+    "framer-motion": "^10.0.0",
+    "lucide-react": "^0.300.0",
+    "next": "14.2.16",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "viem": "2.x",
+    "wagmi": "2.x",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.0.8",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "14.2.16",
+    "postcss": "^8.0.0",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5.0.0"
   }
 }
