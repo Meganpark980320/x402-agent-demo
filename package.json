@@ -12,6 +12,7 @@
     "@google/generative-ai": "^0.1.1",
     "@iqai/adk": "file:./lib/iqai-adk-0.5.7.tgz",
     "@rainbow-me/rainbowkit": "^2.0.0",
+    "@tailwindcss/postcss": "^4.1.17",
     "@tanstack/react-query": "^5.0.0",
     "autoprefixer": "^10.4.22",
     "dedent": "^1.5.3",
