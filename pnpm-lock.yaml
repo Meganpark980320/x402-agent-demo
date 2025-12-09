@@ -12,7 +12,7 @@ importers:
         specifier: ^2.5.0
         version: 2.5.0(@types/react@19.2.7)(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.2.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@19.2.1))(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@4.1.13)
       '@iqai/adk':
-        specifier: file:lib/iqai-adk-0.5.7.tgz
+        specifier: file:./lib/iqai-adk-0.5.7.tgz
         version: file:lib/iqai-adk-0.5.7.tgz(@opentelemetry/core@2.2.0(@opentelemetry/api@1.9.0))(@types/node@20.19.26)(@types/pg@8.15.5)(bufferutil@4.0.9)(typescript@5.9.3)(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@metamask/sdk':
         specifier: ^0.34.0
