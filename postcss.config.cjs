@@ -1,7 +1,8 @@
-// postcss.config.cjs (가장 안전한 Next.js + Tailwind 설정)
+// postcss.config.cjs
 module.exports = {
   plugins: {
-    // ❌ tailwindcss: {}, <-- 제거
-    autoprefixer: {}, // 👈 이것만 남깁니다.
+    // 👇 Tailwind CSS 플러그인(CSS 생성기)을 다시 추가합니다.
+    tailwindcss: {}, 
+    autoprefixer: {},
   },
 };
