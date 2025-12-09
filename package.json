@@ -9,9 +9,25 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@base-org/account": "^2.5.0",
+    "@iqai/adk": "file:lib/iqai-adk-0.5.7.tgz",
+    "@metamask/sdk": "^0.34.0",
+    "@rainbow-me/rainbowkit": "^2.2.10",
+    "@safe-global/safe-apps-provider": "^0.18.6",
+    "@safe-global/safe-apps-sdk": "^9.1.0",
+    "@tanstack/react-query": "^5.90.12",
+    "@walletconnect/ethereum-provider": "^2.23.0",
+    "ai": "^5.0.108",
+    "dedent": "^1.7.0",
+    "ethers": "^6.16.0",
+    "lucide-react": "^0.556.0",
     "next": "16.0.8",
     "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react-dom": "19.2.1",
+    "react-markdown": "^10.1.0",
+    "viem": "^2.41.2",
+    "wagmi": "^3.1.0",
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
