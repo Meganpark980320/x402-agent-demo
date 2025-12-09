@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google"; // 👈 Geist 대신 Inter 가져오기
-import "./globals.css";
+import "./globals.scss";
 import { Providers } from "./providers";
 
 // 폰트 설정 변경

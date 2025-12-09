@@ -1,0 +1,233 @@
+/* app/globals.scss (자연스러운 디자인 최종 수정) */
+
+/* ------------------------------------
+ * 1. 기본 색상 변수 설정 (유지)
+ * ------------------------------------ */
+:root {
+  // 배경 및 텍스트 색상
+--color-bg-dark: #161F31;
+  --color-bg-window: #1f2937; // 채팅창 배경을 약간 더 어둡게 변경하여 대비 강화
+  --color-text-light: #f3f4f6;
+  
+  // 기본 액션/프라이머리 색상
+  --color-primary: #50FA7B; 
+  --color-primary-hover: #3AA37F;
+  
+  // 채팅창 및 입력 필드 배경색
+  --color-bg-input: #374151;
+  --color-bg-user-bubble: #374151; 
+  --color-bg-assistant-bubble: #44475A;
+  
+  // 트랜잭션 상태 색상 (유지)
+  --color-status-pending: #F1FA8C;
+  --color-status-confirmed: #50FA7B;
+  --color-status-link: #BD93F9;
+  --color-status-border: #475569;
+}
+
+/* ------------------------------------
+ * 2. 전역 스타일 및 폰트 설정
+ * ------------------------------------ */
+body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  // ✨ 모든 요소에 부드러운 전환 효과 적용 (전체적인 자연스러움 향상)
+  transition: background-color 0.3s ease; 
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  // ✨ 링크 전환 효과 추가
+  transition: color 0.2s ease;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; 
+}
+
+.logo-section img { // 👈 img 태그에 스타일 적용
+    width: 8rem;    // 이미지 크기 지정 (원하는 크기로 조정)
+    // height: 2rem;
+    object-fit: contain; // 이미지 비율 유지
+}
+
+/* ------------------------------------
+ * 3. 핵심 레이아웃 (.chat-container)
+ * ------------------------------------ */
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 1.5rem; // 여백 약간 증가 (자연스러운 호흡)
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; // ✨ 하단 정렬로 변경 (더 자연스러운 배치)
+  margin-bottom: 2rem;
+  padding: 0 0.5rem;
+}
+
+// ... (로고 섹션 스타일 유지)
+
+.header-title {
+  font-size: 1.75rem; 
+  font-weight: 700; 
+  color: var(--color-text-light); 
+  // ✨ 미세한 전환 효과 (hover 등 추후 확장을 위해)
+  transition: color 0.2s ease;
+}
+
+/* ------------------------------------
+ * 4. 채팅창 영역 (.chat-window)
+ * ------------------------------------ */
+
+.chat-window {
+  flex-grow: 1; 
+  overflow-y: auto;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  background-color: var(--color-bg-window);
+  border-radius: 1.25rem; // 모서리 더 둥글게 (부드러움)
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); // 그림자 깊이 강화 (더 부유하는 느낌)
+  
+  & > div {
+    margin-top: 1rem;
+    &:first-child { margin-top: 0; }
+  }
+}
+
+// ------------------------------------
+// 5. 메시지 버블 및 정렬
+// ------------------------------------
+.message-row {
+  display: flex;
+  margin-top: 0.5rem; // 메시지 간 간격 좁히기 (카톡처럼 밀집된 느낌)
+}
+
+.user-message-row {
+  justify-content: flex-end; 
+}
+
+.assistant-message-row {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  padding: 0.7rem 1.1rem; // 패딩 미세 조정 (더 얇게)
+  border-radius: 0.6rem; // 카톡처럼 덜 둥근 모서리 적용
+  max-width: 65%; // 👈 카톡처럼 최대 너비를 65%로 줄여서 '덜 채워진' 느낌 부여
+  
+  pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+    line-height: 1.4; 
+    font-size: 0.95rem; // 폰트 크기 살짝 줄이기
+  }
+}
+
+// 사용자(우측) 버블 스타일
+.user-bubble {
+  background-color: var(--color-primary); // Primary 색상으로 변경 (더 눈에 띄게)
+  color: var(--color-bg-dark); // 텍스트 색상을 어두운 배경색으로 (선명한 대비)
+  border-top-right-radius: 0.1rem; // 오른쪽 위 모서리만 살짝 뾰족하게
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); // 미세한 그림자 추가
+}
+
+// AI (좌측) 버블 스타일
+.assistant-bubble {
+  background-color: var(--color-bg-assistant-bubble);
+  color: var(--color-text-light);
+  border-top-left-radius: 0.1rem; // 왼쪽 위 모서리만 살짝 뾰족하게
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+// ------------------------------------
+// 6. 입력 영역 및 버튼
+// ------------------------------------
+
+.input-area {
+  display: flex;
+  gap: 0.75rem; 
+}
+
+.input-field {
+  flex-grow: 1; 
+  padding: 0.9rem 1.5rem; // 입력 필드 높이 증가 (더 넉넉한 느낌)
+  border-radius: 2rem; 
+  background-color: var(--color-bg-input);
+  color: var(--color-text-light);
+  border: none;
+  font-size: 1rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4); // 내부 그림자 강화
+  transition: background-color 0.2s ease, box-shadow 0.2s ease; // ✨ 전환 효과 추가
+  
+  &:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+    background-color: lighten($color: #374151, $amount: 5%); // ✨ 포커스 시 배경색 살짝 밝게 (SCSS 기능 사용)
+  }
+}
+
+.send-button {
+  background-color: var(--color-primary);
+  padding: 0.6rem 1.6rem; // 버튼 패딩 조정
+  border-radius: 2rem; 
+  border: none;
+  color: var(--color-bg-dark);
+  font-weight: 700;
+  cursor: pointer;
+  // ✨ 전환 효과 강화
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  
+  &:hover {
+    background-color: var(--color-primary-hover);
+    box-shadow: 0 0 15px rgba(80, 250, 123, 0.5); // ✨ 호버 시 은은한 그림자 효과
+  }
+  &:active {
+    transform: scale(0.97); // 클릭 시 더 부드럽게 눌리는 효과
+  }
+}
+
+// ------------------------------------
+// 7. 트랜잭션 상태 및 기타
+// ------------------------------------
+
+.tx-status-box {
+  margin-top: 0.75rem; 
+  padding: 0.8rem; 
+  background-color: #212533; 
+  border-radius: 0.75rem; // 더 둥글게
+  border: 1px solid var(--color-status-border); 
+  font-size: 0.875rem; 
+  transition: background-color 0.2s ease;
+}
+
+.tx-status-link {
+  font-size: 0.75rem; 
+  color: var(--color-status-link); 
+  text-decoration: none;
+  margin-top: 0.5rem;
+  display: block;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+  
+  &:hover {
+    color: var(--color-primary);
+    text-decoration: underline; // 호버 시 밑줄 생김
+  }
+}
+
+.loading-indicator {
+    color: #a0a0a0; 
+    font-style: italic; // 로딩 중 텍스트에 기울임 적용
+}

@@ -7,6 +7,8 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useSendTransaction, useWaitForTransactionReceipt } from 'wagmi';
 import { parseEther } from 'viem';
 
+// 참고: SCSS 클래스 이름을 사용하도록 className을 모두 수정했습니다.
+
 export default function ChatPage() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<{role: string, content: string, isJson?: boolean}[]>([]);
@@ -63,33 +65,55 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-slate-900 text-white p-4">
+    // 👈 SCSS: chat-container 클래스로 변경 (flex flex-col h-screen bg-slate-900 text-white p-4 대체)
+    <div className="chat-container"> 
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-xl font-bold">EmpAI</h1>
+      {/* 👈 SCSS: header 클래스로 변경 (flex justify-between items-center mb-6 대체) */}
+<div className="header"> 
+
+        
+        {/* 좌측: 로고, 타이틀, 서브타이틀 그룹 (이미지 스타일 차용) */}
+        <div className="header-left-group"> 
+          <div className="logo-section">
+              <img src='/empAI.png' className='img' alt='EmpAI Logo' />
+          </div>
+          <div className="header-subtitle">
+            Powered by @iqai/adk
+          </div>
+        </div>
+        
+        {/* 우측: 지갑 연결 버튼 */}
         <ConnectButton />
       </div>
 
       {/* Chat Window */}
-      <div className="flex-1 overflow-y-auto space-y-4 mb-4 p-4 bg-slate-800 rounded-lg">
+      {/* 👈 SCSS: chat-window 클래스로 변경 (flex-1 overflow-y-auto space-y-4 mb-4 p-4 bg-slate-800 rounded-lg 대체) */}
+      <div className="chat-window">
         {messages.map((m, i) => (
-          <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`p-3 rounded-lg max-w-[80%] ${m.role === 'user' ? 'bg-blue-600' : 'bg-slate-700'}`}>
-              <pre className="whitespace-pre-wrap font-sans">{m.content}</pre>
+          <div 
+            key={i} 
+            // 👈 SCSS: message-row 클래스 사용, 조건부 justify (flex justify-end/start 대체)
+            className={`message-row ${m.role === 'user' ? 'user-message-row' : 'assistant-message-row'}`}
+          >
+            <div 
+              // 👈 SCSS: message-bubble 클래스 사용, 조건부 배경색 (p-3 rounded-lg max-w-[80%] bg-blue-600/bg-slate-700 대체)
+              className={`message-bubble ${m.role === 'user' ? 'user-bubble' : 'assistant-bubble'}`}
+            >
+              <div className="message-content">{m.content}</div>
               
               {/* Transaction Status (Only for the most recent message) */}
               {m.isJson && i === messages.length - 1 && (
-                  <div className="mt-3 p-2 bg-slate-900 rounded border border-slate-600 text-sm">
-                      {isPending && <div className="text-yellow-400">🦊 Please check your wallet...</div>}
-                      {isConfirming && <div className="text-blue-400">⏳ Confirming transaction...</div>}
-                      {isConfirmed && <div className="text-green-400">✅ Transaction confirmed!</div>}
+                  <div className="tx-status-box"> {/* SCSS: tx-status-box 적용 */}
+                      {isPending && <div className="tx-status-pending">🦊 Please check your wallet...</div>}
+                      {isConfirming && <div className="tx-status-confirming">⏳ Confirming transaction...</div>}
+                      {isConfirmed && <div className="tx-status-confirmed">✅ Transaction confirmed!</div>}
                       
                       {hash && (
                         <a 
                           href={`https://sepolia.etherscan.io/tx/${hash}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs text-blue-400 underline mt-2 block hover:text-blue-300 truncate"
+                          className="tx-status-link" 
                         >
                           🔗 View on Sepolia Etherscan (Click)
                         </a>
@@ -99,18 +123,21 @@ export default function ChatPage() {
             </div>
           </div>
         ))}
-        {loading && <div className="text-slate-400">Thinking...</div>}
+        {loading && <div className="loading-indicator">Thinking...</div>} {/* SCSS: loading-indicator 적용 */}
       </div>
 
       {/* Input Area */}
-      <div className="flex gap-2">
+      {/* 👈 SCSS: input-area 클래스로 변경 (flex gap-2 대체) */}
+      <div className="input-area">
         <input 
-          className="flex-1 p-3 rounded bg-slate-700 focus:outline-none"
+          // 👈 SCSS: input-field 클래스로 변경 (flex-1 p-3 rounded bg-slate-700 focus:outline-none 대체)
+          className="input-field"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
         />
-        <button onClick={sendMessage} className="bg-blue-600 px-6 py-2 rounded">Send</button>
+        {/* 👈 SCSS: send-button 클래스로 변경 (bg-blue-600 px-6 py-2 rounded 대체) */}
+        <button onClick={sendMessage} className="send-button">Send</button>
       </div>
     </div>
   );
