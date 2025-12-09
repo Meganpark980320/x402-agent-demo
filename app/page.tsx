@@ -65,7 +65,7 @@ export default function ChatPage() {
     <div className="flex flex-col h-screen bg-slate-900 text-white p-4">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-xl font-bold">x402 Agent</h1>
+        <h1 className="text-xl font-bold">EmpAI</h1>
         <ConnectButton />
       </div>
 
