@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@base-org/account": "^2.5.0",
-"@iqai/adk": "file:./lib/iqai-adk-0.5.7.tgz",
+    "@iqai/adk": "file:./lib/iqai-adk-0.5.7.tgz",
     "@metamask/sdk": "^0.34.0",
     "@rainbow-me/rainbowkit": "^2.2.10",
     "@safe-global/safe-apps-provider": "^0.18.6",
@@ -26,7 +26,7 @@
     "react-dom": "19.2.1",
     "react-markdown": "^10.1.0",
     "viem": "^2.41.2",
-    "wagmi": "^3.1.0",
+    "wagmi": "^2.19.5",
     "zod": "^4.1.13"
   },
   "devDependencies": {
