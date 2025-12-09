@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google"; // 👈 Geist 대신 Inter 가져오기
 import "./globals.css";
-import { Providers } from "./providers"; 
+import { Providers } from "./providers";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// 폰트 설정 변경
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "EmpAI", 
+  title: "x402 Agent",
   description: "AI Economic Operator with Wallet Connection",
 };
 
@@ -25,9 +18,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      {/* 👇 폰트 클래스 적용 부분 변경 */}
+      <body className={inter.className}>
         <Providers>
           {children}
         </Providers>
